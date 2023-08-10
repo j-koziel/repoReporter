@@ -11,9 +11,9 @@ dotenv.config()
 const octokit = new Octokit()
 
 // For now just returns all the issues from a repository
-async function getIssues(repo: string, owner: string) {
+async function getIssues(owner: string, repo: string) {
   try {
-    const issues = await octokit.request(`GET /repos/${repo}/${owner}/issues`, {
+    const issues = await octokit.request(`GET /repos/${owner}/${repo}/issues`, {
       owner,
       repo,
       headers: {
@@ -29,9 +29,9 @@ async function getIssues(repo: string, owner: string) {
 
 
 // For now just returns all the pulls from a repository
-async function getPulls(repo: string, owner: string): Promise<void> {
+async function getPulls(owner: string, repo: string): Promise<void> {
   try {
-    const pulls = await octokit.request(`GET /repos/${repo}/${owner}/pulls`, {
+    const pulls = await octokit.request(`GET /repos/${owner}/${repo}/pulls`, {
       owner,
       repo,
       headers: {
