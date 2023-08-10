@@ -16,5 +16,5 @@ program
 
 const options = program.opts();
 
-console.log(figlet.textSync("Repo Reporter"))
-program.outputHelp()
+console.log(figlet.textSync("Repo Reporter"));
+program.outputHelp();
