@@ -4,8 +4,8 @@
   "module": "app.ts",
   "type": "module",
   "scripts": {
-    "start:dev": "bun run app.ts",
-    "start:prod": "bun --watch app.ts"
+    "start:dev": "bun --watch app.ts",
+    "start:prod": "bun run app.ts"
   },
   "devDependencies": {
     "bun-types": "latest",
