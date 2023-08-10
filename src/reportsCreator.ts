@@ -21,7 +21,7 @@ async function getIssues(owner: string, repo: string) {
       }
     });
 
-    console.log(issues)
+    issues.data.forEach((issue: any) => console.log(issue.title))
   } catch (err) {
     console.log("An error occured while trying to retreive the issues!", err)
   }
@@ -39,7 +39,7 @@ async function getPulls(owner: string, repo: string): Promise<void> {
       }
     });
 
-    console.log(pulls)
+    console.log(pulls.data.data)
   } catch (err) {
     console.log("An error occured while trying to retreive the issues!", err)
   }

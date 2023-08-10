@@ -1,3 +1,5 @@
+#! /usr/bin/env bun
+
 import figlet from "figlet"
 import { Command, OptionValues } from "commander"
 import dotenv from "dotenv"
