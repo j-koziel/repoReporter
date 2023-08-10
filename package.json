@@ -4,8 +4,9 @@
   "module": "app.ts",
   "type": "module",
   "scripts": {
+    "build": "bun build ./src/*.ts --outdir ./build --target bun",
     "start:dev": "bun --watch ./src/app.ts",
-    "start:prod": "bun run ./build/app.ts",
+    "start:prod": "bun run ./build/app.js",
     "lint": "eslint ."
   },
   "devDependencies": {
