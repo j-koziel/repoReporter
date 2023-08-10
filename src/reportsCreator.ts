@@ -17,7 +17,7 @@ async function getIssues(owner: string, repo: string) {
       owner,
       repo,
       headers: {
-        "X-Github-Api-Version": "2022-11-28"
+        "X-Github-Api-Version": process.env.GITHUB_API_VERSION
       }
     });
 
@@ -35,7 +35,7 @@ async function getPulls(owner: string, repo: string): Promise<void> {
       owner,
       repo,
       headers: {
-        "X-Github-Api-Version": "2022-11-28"
+        "X-Github-Api-Version": process.env.GITHUB_API_VERSION
       }
     });
 
