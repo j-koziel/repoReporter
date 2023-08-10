@@ -1,10 +1,5 @@
 import { Octokit } from "octokit"
-import { OptionValues } from "commander"
 import dotenv from "dotenv"
-
-import program from "./app"
-const options: OptionValues = program.opts()
-
 
 dotenv.config()
 
@@ -45,3 +40,6 @@ async function getPulls(repo: string, owner: string): Promise<void> {
     console.log("An error occured while trying to retreive the issues!", err)
   }
 }
+
+
+export { getIssues, getPulls }
