@@ -5,14 +5,18 @@
   "type": "module",
   "scripts": {
     "start:dev": "bun --watch app.ts",
-    "start:prod": "bun run app.ts"
+    "start:prod": "bun run app.ts",
+    "lint": "eslint ."
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "^6.3.0",
     "bun-types": "latest",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "eslint": "^8.46.0"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.1.6"
   },
   "dependencies": {
     "@octokit/rest": "^20.0.1",
