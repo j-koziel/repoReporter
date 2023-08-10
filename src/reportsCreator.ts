@@ -4,11 +4,13 @@ import dotenv from "dotenv"
 dotenv.config()
 
 
-const octokit = new Octokit({
-  auth: process.env.PERSONAL_ACCESS_TOKEN
-})
+// const octokit = new Octokit({
+//   auth: process.env.PERSONAL_ACCESS_TOKEN
+// })
 
+const octokit = new Octokit()
 
+// For now just returns all the issues from a repository
 async function getIssues(repo: string, owner: string) {
   try {
     const issues = await octokit.request(`GET /repos/${repo}/${owner}/issues`, {
@@ -25,6 +27,8 @@ async function getIssues(repo: string, owner: string) {
   }
 }
 
+
+// For now just returns all the pulls from a repository
 async function getPulls(repo: string, owner: string): Promise<void> {
   try {
     const pulls = await octokit.request(`GET /repos/${repo}/${owner}/pulls`, {

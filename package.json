@@ -4,8 +4,8 @@
   "module": "app.ts",
   "type": "module",
   "scripts": {
-    "start:dev": "bun --watch app.ts",
-    "start:prod": "bun run app.ts",
+    "start:dev": "bun --watch ./src/app.ts",
+    "start:prod": "bun run ./build/app.ts",
     "lint": "eslint ."
   },
   "devDependencies": {

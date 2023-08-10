@@ -3,7 +3,7 @@ import { Command, OptionValues } from "commander"
 import dotenv from "dotenv"
 
 import { getIssues, getPulls } from "./reportsCreator"
-import pjson from "./package.json"
+import pjson from "./../package.json"
 
 dotenv.config()
 
@@ -16,10 +16,13 @@ program
   .option("-p, --pulls <value...>", "Create pulls report for an organisation")
   .parse(process.argv);
 
-console.log(figlet.textSync("Repo Reporter"));
-program.outputHelp();
-
 const options: OptionValues = program.opts()
+
+
+if (!Object.keys(options).length) {
+  console.log(figlet.textSync("Repo Reporter"));
+  program.outputHelp();
+}
 
 if (options.issues) {
   const [owner, repo] = options.issues
