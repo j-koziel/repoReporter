@@ -7,7 +7,6 @@ dotenv.config()
 
 const program: Command = new Command();
 
-console.log(figlet.textSync("Repo Reporter"))
 
 program
   .version(`${pjson.version}`)
@@ -16,3 +15,6 @@ program
   .parse(process.argv);
 
 const options = program.opts();
+
+console.log(figlet.textSync("Repo Reporter"))
+program.outputHelp()
