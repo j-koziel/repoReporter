@@ -1,29 +1,23 @@
-import { Octokit } from "octokit"
+import figlet from "figlet"
+import { Command } from "commander"
+import pjson from "./package.json"
 import dotenv from "dotenv"
 
 dotenv.config()
 
+const program: Command = new Command();
 
-const octokit = new Octokit({
-  auth: process.env.PERSONAL_ACCESS_TOKEN
-})
 
-const issues = await octokit.request("GET /repos/twitter/the-algorithm/issues", {
-  owner: "twitter",
-  repo: "the-algorithm",
-  headers: {
-    "X-Github-Api-Version": "2022-11-28"
-  }
-});
+program
+  .version(`${pjson.version}`)
+  .description("A CLI which will create Issues and Pulls reports from an organisations repositories").option("-i, --issues <value>", "Create issues report for an organisation"
+  ).option("-p, --pulls <value>", "Create pulls report for an organisation")
+  .parse(process.argv);
 
-console.log(issues)
+const options = program.opts();
 
-const pulls = await octokit.request('GET /repos/twitter/the-algorithm/pulls', {
-  owner: 'OWNER',
-  repo: 'REPO',
-  headers: {
-    'X-GitHub-Api-Version': '2022-11-28'
-  }
-})
+console.log(figlet.textSync("Repo Reporter"));
+program.outputHelp();
 
-console.log(pulls)
+
+export default program
