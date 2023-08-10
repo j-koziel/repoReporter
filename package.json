@@ -1,0 +1,24 @@
+{
+  "name": "reporeporter",
+  "version": "0.0.1",
+  "module": "app.ts",
+  "type": "module",
+  "scripts": {
+    "start:dev": "bun run app.ts",
+    "start:prod": "bun --watch app.ts"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "dotenv": "^16.3.1"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@octokit/rest": "^20.0.1",
+    "@types/figlet": "^1.5.6",
+    "commander": "^11.0.0",
+    "figlet": "^1.6.0",
+    "octokit": "^3.1.0"
+  }
+}
