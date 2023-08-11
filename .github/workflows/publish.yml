@@ -13,8 +13,10 @@ jobs:
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org
+      - name: bun
+        uses: oven-sh/setup-bun@v1
       - name: build
-        run: npm build
+        run: bun run build
       - name: publish
         run: npm publish --access public
         env:
