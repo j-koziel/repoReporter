@@ -1,6 +1,15 @@
 {
   "name": "reporeporter",
+  "description": "A small CLI app which creates reports about your repo or repositories.",
   "version": "0.0.1",
+  "author": "Jonathan Koziel",
+  "repository": "https://github.com/j-koziel/repoReporter",
+  "homepage": "https://github.com/j-koziel/repoReporter#readme",
+  "license": "ISC",
+  "keywords": [
+    "cli",
+    "github"
+  ],
   "module": "app.ts",
   "main": "build/app.js",
   "type": "module",
