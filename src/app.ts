@@ -13,7 +13,7 @@ const program: Command = new Command();
 
 program
   .version(`${pjson.version}`)
-  .description("A CLI which will create Issues and Pulls reports from an organisations repositories")
+  .description("A CLI which will create Issues and Pulls reports from an organisation's repositories")
   .option("-i, --issues <value...>", "Create issues report for a specific repository")
   .option("-p, --pulls <value...>", "Create pulls report for a specific repository")
   .parse(process.argv);
