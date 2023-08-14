@@ -5,6 +5,7 @@ import { Command, OptionValues } from "commander"
 import dotenv from "dotenv"
 
 import { getIssues, getPulls } from "./reportsCreator"
+import { issuesCsvCreator } from "./csvCreator"
 import pjson from "./../package.json"
 
 dotenv.config()
@@ -27,8 +28,9 @@ if (!Object.keys(options).length) {
 }
 
 if (options.issues) {
-  const [owner, repo] = options.issues
-  getIssues(owner, repo)
+  const [owner, repo]: [string, string] = options.issues
+  const issues = await getIssues(owner, repo)
+  issuesCsvCreator(issues)
 }
 
 if (options.pulls) {
