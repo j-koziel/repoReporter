@@ -1,7 +1,7 @@
 {
   "name": "reporeporter",
   "description": "A small CLI app which creates reports about your repo or repositories.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Jonathan Koziel",
   "repository": "https://github.com/j-koziel/repoReporter",
   "homepage": "https://github.com/j-koziel/repoReporter#readme",
