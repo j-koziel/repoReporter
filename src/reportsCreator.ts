@@ -1,6 +1,8 @@
 import { Octokit } from "octokit"
 import dotenv from "dotenv"
 
+import { issuesCsvCreator } from "./csvCreator"
+
 dotenv.config()
 
 
@@ -11,7 +13,7 @@ dotenv.config()
 const octokit = new Octokit()
 
 // For now just returns all the issues from a repository
-async function getIssues(owner: string, repo: string): Promise<any[] | undefined> {
+async function createIssueReport(owner: string, repo: string): Promise<void> {
   try {
     const issues = await octokit.request(`GET /repos/${owner}/${repo}/issues`, {
       owner,
@@ -24,7 +26,7 @@ async function getIssues(owner: string, repo: string): Promise<any[] | undefined
     const cleanedIssues = [["issue", "creation_date", "num_comments"]];
     issues.data.forEach((issue: any) => cleanedIssues.push([issue.title, issue.created_at, issue.comments]));
 
-    return cleanedIssues;
+    issuesCsvCreator(cleanedIssues)
   } catch (err) {
     console.log("An error occured while trying to retreive the issues!", err);
   }
@@ -49,4 +51,4 @@ async function getPulls(owner: string, repo: string): Promise<void> {
 }
 
 
-export { getIssues, getPulls }
+export { createIssueReport, getPulls }

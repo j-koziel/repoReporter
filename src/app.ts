@@ -4,8 +4,7 @@ import figlet from "figlet"
 import { Command, OptionValues } from "commander"
 import dotenv from "dotenv"
 
-import { getIssues, getPulls } from "./reportsCreator"
-import { issuesCsvCreator } from "./csvCreator"
+import { createReportBasedOnOption } from "./utils"
 import pjson from "./../package.json"
 
 dotenv.config()
@@ -27,13 +26,5 @@ if (!Object.keys(options).length) {
   program.outputHelp();
 }
 
-if (options.issues) {
-  const [owner, repo]: [string, string] = options.issues
-  const issues = await getIssues(owner, repo)
-  issuesCsvCreator(issues)
-}
-
-if (options.pulls) {
-  const [owner, repo] = options.pulls
-  getPulls(owner, repo)
-}
+// Create reports based on provided option 
+createReportBasedOnOption(options)
