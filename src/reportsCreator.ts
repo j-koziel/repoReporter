@@ -24,7 +24,7 @@ async function createIssueReport(owner: string, repo: string): Promise<void> {
     });
 
     const cleanedIssues = [["issue", "creation_date", "num_comments"]];
-    issues.data.forEach((issue: any) => cleanedIssues.push([issue.title, issue.created_at, issue.comments]));
+    issues.data.forEach((issue: { title: string; created_at: string; comments: string }) => cleanedIssues.push([issue.title, issue.created_at, issue.comments]));
 
     issuesCsvCreator(cleanedIssues)
   } catch (err) {

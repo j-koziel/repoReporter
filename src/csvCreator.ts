@@ -1,12 +1,11 @@
 import { stringify } from "csv-stringify/sync"
-import { Stringifier } from "csv-stringify/browser/esm"
-import { createWriteStream } from "fs"
+import { createWriteStream, WriteStream } from "fs"
 
 
-function issuesCsvCreator(issues: any): void {
+function issuesCsvCreator(issues: string[][]): void {
   const stringifier: string = stringify(issues);
 
-  const writeStream = createWriteStream("output.csv", { flags: "a" });
+  const writeStream: WriteStream = createWriteStream("output.csv", { flags: "a" });
   writeStream.write(stringifier);
 }
 
