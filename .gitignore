@@ -170,3 +170,6 @@ dist
 
 # build files
 build
+
+# ignore the created csv files
+*.csv
