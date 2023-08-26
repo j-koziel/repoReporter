@@ -2,11 +2,11 @@ import { stringify } from "csv-stringify/sync"
 import { createWriteStream, WriteStream } from "fs"
 
 
-function issuesCsvCreator(issues: string[][]): void {
-  const stringifier: string = stringify(issues);
+function csvCreator(data: string[][]): void {
+  const stringifier: string = stringify(data);
 
   const writeStream: WriteStream = createWriteStream("output.csv", { flags: "a" });
   writeStream.write(stringifier);
 }
 
-export { issuesCsvCreator }
+export { csvCreator }

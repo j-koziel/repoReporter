@@ -14,7 +14,7 @@
   "main": "build/app.js",
   "type": "module",
   "scripts": {
-    "build": "bun build ./src/*.ts --outdir ./build --target bun",
+    "build": "bun build ./src/*.ts ./src/commands/*.ts --outdir ./build --target bun",
     "start:dev": "bun run ./src/app.ts",
     "start:prod": "bun run ./build/app.js",
     "lint": "eslint ."

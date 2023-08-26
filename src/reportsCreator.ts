@@ -1,7 +1,7 @@
 import { Octokit } from "octokit"
 import dotenv from "dotenv"
 
-import { issuesCsvCreator } from "./csvCreator"
+import { csvCreator } from "./csvCreator"
 
 dotenv.config()
 
@@ -26,7 +26,7 @@ async function createIssueReport(owner: string, repo: string): Promise<void> {
     const cleanedIssues = [["issue", "creation_date", "num_comments"]];
     issues.data.forEach((issue: { title: string; created_at: string; comments: string }) => cleanedIssues.push([issue.title, issue.created_at, issue.comments]));
 
-    issuesCsvCreator(cleanedIssues)
+    csvCreator(cleanedIssues)
   } catch (err) {
     console.log("An error occured while trying to retreive the issues!", err);
   }
